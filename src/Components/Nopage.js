@@ -8,7 +8,7 @@ function Nopage() {
     return (
         <Base
         title={"404 no page content"}
-        description={"Please go to dashboard and click below button"}
+        description={"please go to dashboard and click below button"}
         >
         <button onClick={()=>history.push("/")}>Go to Dsahboard</button>
         </Base>

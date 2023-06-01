@@ -1,89 +1,48 @@
-.base-design {
-    display: flex;
-    flex-direction: row;
-}
-
-.left-content {
-    background-color: blue;
-    width: 25vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    
-   
-    
-}
-.right-content {
-    background-color: blue;
-    border: 1px solid black;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    place-items: center;
-    justify-content: center;
-  
-
-}
- button {
-    width: 200px;
-    height: 50px;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    font-size: medium;
-    font-weight: bold;
-    background-color: blueviolet;
-   
-}
-.add-new {
-    display: flex;
-    padding: 10px;
-    gap: 6rem;
-}
-
 *{
-    padding: 0px;
-    margin: 0px;
-  }
-  .main-component {
-   
-    display: flex;
-    background-color: rgb(92, 207, 178);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  padding: 0px;
+  margin: 0px;
 }
-.heading {
-   
-    padding : 50px;
-    font-family: sans-serif;
-  }
-  
-.main-segment {
-    
-    width: 100%;
-    text-align: center;
-    height: 100%;
-  }
+.main-component{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+heading{
+  padding : 50px;
+  font-family: sans-serif;
+}
 
-  .card{
-  background-color: rgb(202, 86, 218);  
+.main-segment{
+  width: 100%;
+  text-align: center;
+  height: 75%;
+}
+.child-component{
+  margin: 25px;
+}
+.card{
   display: flex;
   flex-direction: column;
   gap :2rem;
-  align-content: space-around;
-  border-radius: 10px;
+ align-content: space-around;
+  border : 1px solid red;
   width : 200px;
-  height: 250px;
-  margin : 10px;
+  height: 200px;
+  margin : 12px;
 }
 
 .card-container{
-  display: flex;
-  flex-direction: row;
+  display: grid;
   gap :1rem;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-}  
+}
+.text-area-col{
+
+  width:90%;
+  margin: 0 auto;
+}
+.nav-bar{
+  width: 100%;
+  
+}

@@ -2,6 +2,7 @@ import React, { useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
 import Base from '../Base/Base'
+import { Button, TextField } from '@mui/material'
 
 
 function UpdateStudents({students, setStudents}) {
@@ -49,34 +50,53 @@ function UpdateStudents({students, setStudents}) {
         title={"This is Updatestudentss"}
         description={"here we can update the students data"}
         >
-        <div>
-            <input 
-            type="text"
-            placeholder="Enter the name"
-            onChange={(e)=>setName(e.target.value)}
-            value={name}
-            />
-            <input
-            type="text"
-            placeholder="Enter the batch"
-            onChange={(e)=>setBatch(e.target.value)}
-            value={batch}
-            />
-            <input
-            type="text"
-            placeholder="Enter the gender"
-            onChange={(e)=>setGender(e.target.value)}
-            value={gender}
-            />
-            <input 
-            type="text"
-            placeholder="Enter the qulification"
-            onChange={(e)=>setQualification(e.target.value)}
-            value={qualification}
-            />
+         <div className="text-area-col">
 
-            <button onClick={(UpdateStudent)}>UpdateStudents</button>
+        <TextField
+          id="filled-basic"
+          fullWidth sx={{m:1}}
+          label="Name"
+          variant="filled"
+          type="text"
+          value={name}
+          onChange={(e)=>setName(e.target.value)}
+        />
 
+        <TextField
+          id="filled-basic"
+          fullWidth sx={{m:1}}
+          label="Batch"
+          variant="filled"
+          type="text"
+          onChange={(e)=>setBatch(e.target.value)}
+          value={batch}
+        />
+
+        <TextField
+          id="filled-basic"
+          fullWidth sx={{m:1}}
+          label="Gender"
+          variant="filled"
+          type="text"
+          onChange={(e)=>setGender(e.target.value)}
+          value={gender}
+        />
+
+
+        <TextField
+          id="filled-basic"
+          fullWidth sx={{m:1}}
+          label="Qualification"
+          variant="filled"
+          type="text"
+          onChange={(e)=>setQualification(e.target.value)}
+          value={qualification}
+        />
+            <Button 
+            variant="contained"
+            onClick={UpdateStudent}
+            >Update Student</Button>    
+            
         </div>
         </Base>
     )

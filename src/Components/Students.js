@@ -1,12 +1,20 @@
-import Base from '../Base/Base'
+import { Button, Card, CardActions, CardContent, Typography } from '@mui/material';
+import Base from '../Base/Base';
+import { useHistory } from 'react-router-dom';
+import ModeEditOutlineIcon from '@mui/icons-material/ModeEditOutline';
+import DeleteIcon from '@mui/icons-material/Delete';
 
- import { useHistory } from 'react-router-dom'
+
+ 
+// import { useState } from 'react';
+// import data from '../data/data';
+// import AddStudents from './AddStudents';
+// import UpdateStudents from './UpdateStudents';
+
 
 
  function Students({students, setStudents}) {
    const history = useHistory()
-
-
       const deleteStudents = async(studId) => {
          const response = await fetch(`https://646202d9185dd9877e48af11.mockapi.io/users/${studId}`,{
             method:"DELETE",
@@ -21,36 +29,43 @@ import Base from '../Base/Base'
     return (
         <Base 
           title={"Student Description"}
-          description={"The page containes students data"}
-          
-          > 
-             
+          description={"The page containes students data"}> 
             <div className='card-container'>
-               
                {students.map((stud,idx)=>(
 
-                <div className='card' key={idx}> 
+                 <Card sx={{ maxWidth: 200, height: 220 }} key={idx}>
+                 <CardContent>
+                 <Typography gutterBottom variant="h5" component="div">
+                 {stud.name}
+                 </Typography>
+                 <Typography variant="body2" color="text.secondary">
+                 {stud.batch}
+                 </Typography>
+                 <Typography variant="body2" color="text.secondary">
+                 {stud.gender}
+                 </Typography>
+                 <Typography variant="body2" color="text.secondary">
+                 {stud.qualification}
+                 </Typography>
+                 </CardContent>
+                 <CardActions>
+                 <Button 
+                 size="small" 
+                 onClick={()=>history.push(`/edit/${stud.id}`)}>
+                  <ModeEditOutlineIcon/>
+                  </Button>
 
-                 <div className='content'>
-                 <h3>{stud.name}</h3>
-                 <p>{stud.batch}</p>
-                 <p>{stud.gender}</p>
-                 <p>{stud.qualification}</p>
-                 </div>
-
-                 <div className='control'> 
-                 <button onClick={()=>history.push(`/edit/${stud.id}`)}>edit</button> {" "}
-                 <button onClick={()=>deleteStudents(stud.id)}>delete</button>
-                 </div>
-
-                </div>
-               ))}
-               
-
+                 <Button 
+                 size="small" 
+                 onClick={()=>deleteStudents(stud.id)}>
+                 <DeleteIcon/>
+                 </Button>
+                 </CardActions>
+                 </Card>
+                ))}
             </div>
 
-
-         </Base>  
+        </Base>  
       )
    }
 

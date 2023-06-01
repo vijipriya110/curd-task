@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Base from '../Base/Base'
 import { useHistory } from "react-router-dom";
+import { Button, IconButton, Snackbar, TextField } from "@mui/material";
 
 function AddStudents({students, setStudents}) {
     const history = useHistory()
@@ -8,6 +9,37 @@ function AddStudents({students, setStudents}) {
     const [batch, setBatch] = useState("")
     const [gender, setGender] = useState("")
     const [qualification, setQualification] = useState("")
+    const [open, setOpen] = useState(false);
+
+    const handleClick = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = (event, reason) => {
+      if (reason === 'clickaway') {
+        return;
+      }
+  
+      setOpen(false);
+      history.push("/Students")
+    };
+
+    const action = (
+      <React.Fragment>
+        <Button color="secondary" size="small" onClick={handleClose}>
+          UNDO
+        </Button>
+        <IconButton
+          size="small"
+          aria-label="close"
+          color="inherit"
+          onClick={handleClose}
+        >
+          close
+        </IconButton>
+      </React.Fragment>
+    );
+  
 
     const createStudents = async() =>{
         const newStudents ={
@@ -26,47 +58,73 @@ function AddStudents({students, setStudents}) {
     })
     const data = await response.json()
     setStudents([...students, data])
-    history.push("/Students")
-
+    handleClick()
+    
     } 
 
     return (
         <Base
-        title={"Add New Student"}
-        description={"New Student details add here"}
+        title={"Add New Students"}
+        description={"New Students data add here"}
         >
-        <div className="add-new">
-            <input
-            type="text"
-            placeholder="Enter the name"
-            onChange={(e)=>setName(e.target.value)}
-            value={name}
-            />
-            <input
-            type="text"
-            placeholder="Enter the batch"
-            onChange={(e)=>setBatch(e.target.value)}
-            value={batch}
-            />
-            <input
-            type="text"
-            placeholder="Enter the gender"
-            onChange={(e)=>setGender(e.target.value)}
-            value={gender}
-            />
-            <input 
-            type="text"
-            placeholder="Enter the qulification"
-            onChange={(e)=>setQualification(e.target.value)}
-            value={qualification}
-            />
+        <div className="text-area-col">
 
-            <button onClick={createStudents}>Add Students</button>
+        <TextField
+          id="filled-basic"
+          fullWidth sx={{m:1}}
+          label="Name"
+          variant="filled"
+          type="text"
+          value={name}
+          onChange={(e)=>setName(e.target.value)}
+        />
 
+        <TextField
+          id="filled-basic"
+          fullWidth sx={{m:1}}
+          label="Batch"
+          variant="filled"
+          type="text"
+          onChange={(e)=>setBatch(e.target.value)}
+          value={batch}
+        />
+
+        <TextField
+          id="filled-basic"
+          fullWidth sx={{m:1}}
+          label="Gender"
+          variant="filled"
+          type="text"
+          onChange={(e)=>setGender(e.target.value)}
+          value={gender}
+        />
+
+
+        <TextField
+          id="filled-basic"
+          fullWidth sx={{m:1}}
+          label="Qualification"
+          variant="filled"
+          type="text"
+          onChange={(e)=>setQualification(e.target.value)}
+          value={qualification}
+        />
+            <Button 
+            variant="contained"
+            onClick={createStudents}
+            >Add Students</Button> 
+            
+            <Snackbar
+             open={open}
+             autoHideDuration={6000}
+             onClose={handleClose}
+             message="Added Sucessfully"
+             action={action}
+             />   
+            
         </div>
         </Base>
     )
 }
 
 export default AddStudents
-
