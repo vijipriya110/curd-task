@@ -7,10 +7,10 @@ function Nopage() {
     const history = useHistory()
     return (
         <Base
-        title={"404 no page content"}
-        description={"please go to dashboard and click below button"}
+            title={"404 no page content"}
+            description={"please go to dashboard and click below button"}
         >
-        <button onClick={()=>history.push("/")}>Go to Dsahboard</button>
+            <button onClick={() => history.push("/")}>Go to Dsahboard</button>
         </Base>
 
     )
