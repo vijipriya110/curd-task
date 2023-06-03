@@ -1,48 +1,36 @@
-*{
-  padding: 0px;
-  margin: 0px;
+.App {
+  text-align: center;
 }
-.main-component{
+
+.nav-container{
+  margin: 27px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-container{
+  border: 1px solid black;
+  width: 500px;
+  height: 300px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-heading{
-  padding : 50px;
-  font-family: sans-serif;
-}
-
-.main-segment{
-  width: 100%;
-  text-align: center;
-  height: 75%;
-}
-.child-component{
-  margin: 25px;
-}
-.card{
-  display: flex;
-  flex-direction: column;
-  gap :2rem;
- align-content: space-around;
-  border : 1px solid red;
-  width : 200px;
-  height: 200px;
-  margin : 12px;
-}
-
-.card-container{
-  display: grid;
-  gap :1rem;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-}
-.text-area-col{
-
-  width:90%;
-  margin: 0 auto;
-}
-.nav-bar{
-  width: 100%;
+  gap: 2rem;
+  padding: 20px;
+  border-radius: 15px;
   
 }
+ input{
+  padding: 12px;
+  border-radius: 5px;
+  width: 300px;
+  background-color:#c4b7b7;
+  border: none;
+ }
+ button{
+  width: max-content;
+  padding: 10px;
+ }
